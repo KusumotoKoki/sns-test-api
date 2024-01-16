@@ -12,8 +12,10 @@ app.use(express.json());
 
 const authRoute = require("./routers/auth");
 const postsRoute = require("./routers/posts");
+const usersRoute = require("./routers/users");
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postsRoute);
+app.use("/api/users", usersRoute);
 
 // サーバーのポート番号を設定します
 const PORT = 5000;
