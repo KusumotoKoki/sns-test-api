@@ -31,8 +31,6 @@ router.post("/register", async (req, res) => {
 
 // jsonwebtokenモジュールをインポートします
 const jwt = require('jsonwebtoken');
-// 環境変数を読み込むためにdotenvモジュールをインポートします
-require("dotenv").config();
 
 // ユーザーログインAPI
 router.post("/login", async (req, res) => {
@@ -59,7 +57,7 @@ router.post("/login", async (req, res) => {
   }
 
   // JWTトークンを生成します
-  const secretKey = process.env.SECRET_KEY;
+  const secretKey = process.env.JWT_SECRET_KEY;
   const token = jwt.sign({ id: user.id }, secretKey, {
     expiresIn: "1d",
   });
